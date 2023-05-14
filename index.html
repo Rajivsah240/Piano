@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Piano</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        #piano {
+            background-color: #00471b;
+            width: 992px;
+            height: 290px;
+            margin: 80px auto;
+            padding: 90px 20px 0 20px;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .keys {
+            background-color: #040404;
+            width: 949px;
+            height: 180px;
+            padding-left: 2px;
+            overflow: hidden;
+        }
+
+        .key:hover {
+
+            background: linear-gradient(to bottom, #828383, #636464, #464746, #2b2c2a, #121210);
+            cursor: wait;
+        }
+
+        .key {
+            background-color: #ffffff;
+            position: relative;
+            width: 41px;
+            height: 175px;
+            margin: 2px;
+            float: left;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .key.black--key::after {
+            background-color: #1d1e22;
+            content: "";
+            position: absolute;
+            left: -18px;
+            width: 32px;
+            height: 100px;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .logo {
+            width: 200px;
+            position: absolute;
+            top: 23px;
+        }
+
+        @media (max-width: 768px) {
+            #piano {
+                width: 358px;
+            }
+
+            .keys {
+                width: 318px;
+            }
+
+            .logo {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 1199px) and (min-width: 769px) {}
+    </style>
+</head>
+
+<body>
+    <div id="piano">
+      <img class="logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg" alt="freeCodeCamp Logo" />
+      <div class="keys">
+        <div class="key" onmouseover="document.getElementById('audioC').play()"></div>
+        <div class="key black--key" onmouseover="document.getElementById('audioCSharp').play()"></div>
+        <div class="key black--key" onmouseover="document.getElementById('audioD').play()"></div>
+        <div class="key" onmouseover="document.getElementById('audioDSharp').play()"></div>
+        <div class="key" onmouseover="document.getElementById('audioE').play()"></div>
+        <div class="key black--key" onmouseover="document.getElementById('audioF').play()"></div>
+        <div class="key black--key" onmouseover="document.getElementById('audioFSharp').play()"></div>
+        <div class="key" onmouseover="document.getElementById('audioG').play()"></div>
+        <div class="key black--key" onmouseover="document.getElementById('audioGSharp').play()"></div>
+        <div class="key black--key" onmouseover="document.getElementById('audioA').play()"></div>
+        <div class="key" onmouseover="document.getElementById('audioASharp').play()"></div>
+        <div class="key" onmouseover="document.getElementById('audioB').play()"></div>
+        <div class="key" onmouseover="document.getElementById('audioC2').play()"></div>
+
+        <audio id="audioC" src="./68438__pinkyfinger__piano-b.wav"></audio>
+        <audio id="audioCSharp" src="./68439__pinkyfinger__piano-bb.wav"></audio>
+        <audio id="audioD" src="./68440__pinkyfinger__piano-c.wav"></audio>
+        <audio id="audioDSharp" src="./68442__pinkyfinger__piano-d.wav"></audio>
+        <audio id="audioE" src="./68443__pinkyfinger__piano-e.wav"></audio>
+        <audio id="audioF" src="./68445__pinkyfinger__piano-f.wav"></audio>
+        <audio id="audioFSharp" src="./68446__pinkyfinger__piano-f.wav"></audio>
+        <audio id="audioG" src="./68447__pinkyfinger__piano-g.wav"></audio>
+        <audio id="audioGSharp" src="./68448__pinkyfinger__piano-g.wav"></audio>
+        <audio id="audioA" src="./piano-a.wav"></audio>
+        <audio id="audioASharp" src="path/to/a#.mp3"></audio>
+        <audio id="audioB" src="./68438__pinkyfinger__piano-b.wav"></audio>
+        <audio id="audioC2" src="./piano_c.wav"></audio>
+      </div>
+    </div>
+  </body>
+<script>
+    $(document).ready(function() {
+  $('.key').mouseover(function() {
+    var audio = $(this).find('audio')[0];
+    audio.currentTime = 0;
+    audio.play();
+  });
+});
+
+</script>
+
+</html>
